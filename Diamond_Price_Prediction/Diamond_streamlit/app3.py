@@ -140,7 +140,7 @@ def main():
     with st.expander("Data"):
         st.write('Raw data')
         base_path = os.path.dirname(__file__)
-        file_path = os.path.join(base_path, 'data', 'diamonds.csv')
+        data_path = os.path.join(base_path, '..', 'data', 'diamonds.csv')
         df = pd.read_csv(file_path)
         df
 
