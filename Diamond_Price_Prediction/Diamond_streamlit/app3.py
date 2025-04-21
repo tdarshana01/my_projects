@@ -82,13 +82,6 @@ def main():
         length, width, and height also play a crucial role in pricing.
         """)
 
-    # Image Row
-    col1, col2 = st.columns(2)
-    with col1:
-        st.image("images/diamond1.jpg", caption="Anatomy of a Diamond")
-    with col2:
-        st.image("images/diamond2.jpg", caption="Anatomy of a Diamond")
-
     # Diamond Characteristics
     st.header("Diamond Characteristics")
     st.markdown("""
@@ -147,8 +140,8 @@ def main():
     with st.expander("Data"):
         st.write('Raw data')
         base_path = os.path.dirname(__file__)
-        file_path = os.path.join(base_path, 'data', 'diamonds.csv')
-        df = pd.read_csv(file_path)
+        data_path = os.path.join(base_path, '..', 'data', 'diamonds.csv')
+        df = pd.read_csv(data_path)
         df
 
     with st.expander("Predictor"):
