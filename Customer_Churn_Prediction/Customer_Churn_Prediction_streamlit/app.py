@@ -108,7 +108,9 @@ def main():
 
         input_df_1 = input_df_1[expected_columns]
 
-        pipeline = joblib.load('./artifacts/pipeline.pickle')
+        base_path = os.path.dirname(__file__)
+        pipeline_path = os.path.join(base_path,'artifacts','pipeline.pickle')
+        pipeline = joblib.load(pipeline_path)
         pred_proba = pipeline.predict_proba(input_df_1)[:,1]
         prediction = (pred_proba > 0.56).astype(int)
         prediction = pd.Series(prediction)
