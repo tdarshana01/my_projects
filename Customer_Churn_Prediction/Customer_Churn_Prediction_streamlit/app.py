@@ -67,9 +67,9 @@ def estimate_churn(gender,seniorcitizen,partner,dependents,tenure,phoneservice,m
     prediction = model.predict([X])[0]
     result = ''
     if prediction == 1:
-        result = 'Churn'
+        result = 'more'
     else:
-        result = 'not Churn'
+        result = 'less'
 
     probability = model.predict_proba([X])[0][1]
     return result, probability
@@ -171,7 +171,7 @@ def main():
 
         # Display the result only if button was clicked
         if st.session_state.show_result:
-            st.success(f"**The customer is more likely to {st.session_state.result}**")
+            st.success(f"**The customer is {st.session_state.result} likely to churn**")
             st.success(f"**The probability of churn is {st.session_state.probability:.2%}**")
 
         # Clear All Button
